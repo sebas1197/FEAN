@@ -1,0 +1,39 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Clínica especialista</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Ingresar</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/clientes" >Ver mis resultados</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+
+<div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2>Iniciar sesión</h2>
+        <form (ngSubmit)="login()" #loginForm="ngForm">
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+          </div>
+          <div class="form-group">
+            <label for="password">Contraseña</label>
+            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
+          </div> <br>
+          <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Iniciar sesión</button>
+        </form>
+      </div>
+    </div>
+  </div>
+  

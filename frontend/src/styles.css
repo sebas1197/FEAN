@@ -1,0 +1,15 @@
+/* You can add global styles to this file, and also import other style files */
+.modal {
+    display: none;
+    background-color: rgba(0, 0, 0, 0.5);
+  }
+  
+  .modal-dialog {
+    margin-top: 10%;
+  }
+  
+  .modal-content {
+    max-width: 500px;
+    margin: 0 auto;
+  }
+  

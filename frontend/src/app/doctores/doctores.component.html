@@ -1,0 +1,97 @@
+<nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Clínica especialista</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="">Cerrar sesión</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/pacientes" >Pacientes</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/examenes" >Examenes</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  
+    <br>
+  
+      <div class="container">
+          <h1 class="display-4 text-center">Doctores</h1>
+          <div class="form-group">
+            <input type="text" class="form-control" [(ngModel)]="terminoBusqueda" (input)="buscar(terminoBusqueda)" placeholder="Buscar por cédula">
+            <button class="btn btn-primary" (click)="openModal()">Agregar</button>
+          </div>
+          <table class="table table-responsive">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Cédula</th>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Clave</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let registro of registros | filter: filtro">
+                <td>{{ registro.id }}</td>
+                <td>{{ registro.cedula }}</td>
+                <td>{{ registro.nombre }}</td>
+                <td>{{ registro.apellido }}</td>
+                <td>{{ registro.clave }}</td>
+                <td class="text-center">
+                  <button class="btn btn-primary" (click)="editModal(registro)">Editar</button>
+                  <button class="btn btn-danger" (click)="eliminar(registro)">Eliminar</button>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        
+        
+
+        <div class="modal" tabindex="-1" role="dialog" [ngClass]="{'d-block': showModal}">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-body">
+                <form>
+                  
+                  <div class="form-group">
+                    <label for="nombre">Cédula</label>
+                    <input type="text" class="form-control" name="cedula" [(ngModel)]="doctor.cedula">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" class="form-control" name="nombre" [(ngModel)]="doctor.nombre">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="nombre">Apellido</label>
+                    <input type="text" class="form-control" name="apellido" [(ngModel)]="doctor.apellido">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="nombre">Clave</label>
+                    <input type="text" class="form-control" name="clave" [(ngModel)]="doctor.clave">
+                  </div>
+
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" (click)="closeModal()">Cerrar</button>
+                <button *ngIf="!EDICION" type="button" class="btn btn-primary" (click)="guardar()">Enviar</button>
+                <button *ngIf="EDICION" type="button" class="btn btn-primary" (click)="editar()">Editar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
