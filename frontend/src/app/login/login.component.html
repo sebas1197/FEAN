@@ -24,12 +24,12 @@
         <h2>Iniciar sesión</h2>
         <form (ngSubmit)="login()" #loginForm="ngForm">
           <div class="form-group">
-            <label for="email">Email</label>
-            <input type="email" class="form-control" id="email" name="email" [(ngModel)]="email" required>
+            <label for="email">Cédula</label>
+            <input type="text" class="form-control" name="cedula" [(ngModel)]="cedula" required>
           </div>
           <div class="form-group">
-            <label for="password">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
+            <label for="password">Clave</label>
+            <input type="password" class="form-control" name="clave" [(ngModel)]="clave" required>
           </div> <br>
           <button type="submit" class="btn btn-primary" [disabled]="!loginForm.form.valid">Iniciar sesión</button>
         </form>

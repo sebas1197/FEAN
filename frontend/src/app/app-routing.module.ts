@@ -12,6 +12,7 @@ const routes: Routes = [
   { path: 'clientes', component: ClientesComponent },
   { path: 'login', component: LoginComponent},
   { path: 'pacientes', component: PacientesComponent},
+  { path: 'pacientes/:id', component: PacientesComponent},
   { path: 'examenes', component: ExamenesComponent},
   { path: 'doctores', component: DoctoresComponent},
   { path: '**', redirectTo: '', pathMatch: 'full' }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { DoctoresService } from '../servicios/doctores/doctores.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-doctores',
@@ -39,6 +40,7 @@ export class DoctoresComponent {
 
   openModal() {
     this.showModal = true;
+    this.doctor = {}
   }
 
   closeModal() {
@@ -48,9 +50,13 @@ export class DoctoresComponent {
 
   guardar() {
     this.doctoresServices.postDoctor(this.doctor).subscribe((data: any) => {
-      this.registros.push(data);
+      this.closeModal();
+      Swal.fire(
+        'Registro guardado',
+        '',
+        'success'
+      )
     });
-    this.closeModal();
     this.listar();
   }
 
@@ -72,6 +78,11 @@ export class DoctoresComponent {
       });
     });
     this.closeModal();
+    Swal.fire(
+      'Registro actualizado',
+      '',
+      'success'
+    )
     this.listar();
   }
 
@@ -83,6 +94,11 @@ export class DoctoresComponent {
         }
       });
     });
+    Swal.fire(
+      'Registro eliminado',
+      '',
+      'success'
+    )
     this.listar();
   }  
 
