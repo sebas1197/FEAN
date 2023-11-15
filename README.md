@@ -21,11 +21,11 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
     ```bash
    npm i
 
-
+- Node
     ```bash
    node index.js
 
-    
+- Angular    
     ```bash
    ng serve -o
 
